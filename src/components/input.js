@@ -4,7 +4,7 @@ import { faCircleCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 
-const ComponenteInput = ({estado, cambiarEstado,label, placeholder, type, name, leyendaError, expresionRegular}) => {
+const ComponenteInput = ({estado, cambiarEstado,label, placeholder, type, name, leyendaError, expresionRegular, funcion}) => {
 
     const onChange = (e) => {
         cambiarEstado({...estado, campo: e.target.value});
@@ -17,6 +17,9 @@ const ComponenteInput = ({estado, cambiarEstado,label, placeholder, type, name, 
             } else{
                 cambiarEstado({...estado, valido: 'false'})
             }
+        }
+        if (funcion) {
+            funcion();
         }
     }
     return(
@@ -34,7 +37,7 @@ const ComponenteInput = ({estado, cambiarEstado,label, placeholder, type, name, 
                 valido={estado.valido}
             />
             <IconoValidacion
-            icon={estado.valido == 'true' ? faCircleCheck : faTimesCircle}
+            icon={estado.valido === 'true' ? faCircleCheck : faTimesCircle}
             valido={estado.valido}
 
             />
