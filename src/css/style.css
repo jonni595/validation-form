@@ -200,6 +200,7 @@ svg {
   background: #0ea5e9;
   font-size: 1.5rem;
   cursor: pointer;
+  transition: opacity 0.3s;
 }
 
 .error {
@@ -233,7 +234,7 @@ svg {
   justify-content: center;
   color: #fffbf5;
   border-radius: 5px;
-  background: #2dd4bf;
+  background: #27c0ad;
   padding: 10px 15px;
   margin: auto auto;
   font-weight: 400;
