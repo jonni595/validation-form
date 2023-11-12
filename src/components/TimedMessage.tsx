@@ -1,0 +1,21 @@
+import { useEffect, useState } from "react";
+
+interface MessageProps {
+  message: string;
+}
+
+const TimedMessage: React.FC<MessageProps> = ({ message }) => {
+  const [showMessage, setShowMessage] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowMessage(false);
+    }, 9000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return showMessage && <div className="error">{message}</div>;
+};
+
+export default TimedMessage;
