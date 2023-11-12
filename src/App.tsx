@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { BsCheckCircleFill } from "react-icons/bs";
 import { initialPerson } from "./utils/model";
 import { submitForm } from "./utils/submitForm";
+import TimedMessage from "./components/TimedMessage";
 
 const App = () => {
   const [person, setPerson] = useState(initialPerson);
@@ -8,7 +10,14 @@ const App = () => {
   const [status, setStatus] = useState("typing");
 
   if (status === "success") {
-    return <h1>successfully registered!</h1>;
+    return (
+      <div className="success-container">
+        <div className="success">
+          <h1>successfully registered!</h1>
+          <BsCheckCircleFill className="icon" />
+        </div>
+      </div>
+    );
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -117,7 +126,7 @@ const App = () => {
             />
           </div>
           <button type="submit">Send</button>
-          {error !== null && <p>{error.message}</p>}
+          {error !== null && <TimedMessage message={error.message} />}
         </form>
       </div>
     </div>

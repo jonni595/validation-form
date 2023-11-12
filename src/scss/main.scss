@@ -70,3 +70,41 @@
     cursor: pointer;
   }
 }
+
+.error {
+  @include u.size(300px);
+  @include u.flex();
+  color: u.$text-color;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: u.$error;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.success-container {
+  @include u.size(100%, 100vh);
+  @include u.flex();
+}
+
+.success {
+  @include u.size(300px);
+  @include u.flex();
+  color: u.$text-color;
+  border-radius: 5px;
+  background: u.$successfully;
+  padding: 10px 15px;
+  margin: auto auto;
+  font-weight: 400;
+  position: relative;
+
+  h1 {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+  }
+
+  .icon {
+    font-size: 1.7rem;
+    margin-left: 8px;
+  }
+}
