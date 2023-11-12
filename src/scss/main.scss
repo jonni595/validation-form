@@ -1,0 +1,72 @@
+@forward "global";
+@use "./utils" as u;
+
+.container {
+  @include u.size(100%, 100vh);
+  @include u.flex(column, center, center);
+
+  h1 {
+    font-size: clamp(1.5rem, 8vw - 2rem, 3rem);
+  }
+
+  .form-container {
+    @include u.size(100%);
+    @include u.flex();
+    max-width: 800px;
+    margin-top: 50px;
+  }
+}
+
+.form {
+  @include u.size(100%);
+  max-width: 650px;
+  @include u.flex(row, center, center, wrap);
+  gap: 15px;
+
+  &__group {
+    @include u.flex(column, flex-start, center);
+    @include u.size(300px);
+
+    &:nth-child(7) {
+      @include u.flex(row-reverse, center, flex-end);
+    }
+
+    label {
+      font-size: 2rem;
+      font-weight: 300;
+      text-transform: capitalize;
+      margin-bottom: 5px;
+    }
+
+    input:not([type="checkbox"]) {
+      @include u.size(100%);
+      padding: 10px 12px;
+      font-size: 1.5em;
+      letter-spacing: 0.5px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      background: #1e293b;
+      margin-bottom: 8px;
+
+      &::placeholder {
+        color: u.$placeholder;
+      }
+    }
+
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+  }
+
+  button[type="submit"] {
+    @include u.size(300px);
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: #0ea5e9;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
