@@ -130,6 +130,9 @@ svg {
   align-items: center;
   justify-content: flex-end;
 }
+.form__group:nth-child(7) label {
+  cursor: pointer;
+}
 .form__group label {
   font-size: 2rem;
   font-weight: 300;
@@ -141,17 +144,25 @@ svg {
   padding: 10px 12px;
   font-size: 1.5em;
   letter-spacing: 0.5px;
-  outline: none;
+  outline: 2px solid #1e293b;
   border: none;
   border-radius: 5px;
   background: #1e293b;
   margin-bottom: 8px;
+  transition: outline 0.3s;
 }
 .form__group input:not([type=checkbox])::placeholder {
   color: #64748b;
 }
+.form__group input:not([type=checkbox]):hover {
+  outline: 2px solid #94add1;
+}
+.form__group input:not([type=checkbox]):focus {
+  outline: 2px solid #94add1;
+}
 .form__group input[type=checkbox] {
   margin-right: 8px;
+  cursor: pointer;
 }
 .form button[type=submit] {
   width: 300px;

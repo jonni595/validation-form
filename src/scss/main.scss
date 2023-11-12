@@ -29,6 +29,10 @@
 
     &:nth-child(7) {
       @include u.flex(row-reverse, center, flex-end);
+
+      label {
+        cursor: pointer;
+      }
     }
 
     label {
@@ -43,19 +47,29 @@
       padding: 10px 12px;
       font-size: 1.5em;
       letter-spacing: 0.5px;
-      outline: none;
+      outline: 2px solid u.$input-bg;
       border: none;
       border-radius: 5px;
-      background: #1e293b;
+      background: u.$input-bg;
       margin-bottom: 8px;
+      transition: outline 0.3s;
 
       &::placeholder {
         color: u.$placeholder;
+      }
+
+      &:hover {
+        outline: 2px solid u.$outline;
+      }
+
+      &:focus {
+        outline: 2px solid u.$outline;
       }
     }
 
     input[type="checkbox"] {
       margin-right: 8px;
+      cursor: pointer;
     }
   }
 
@@ -65,7 +79,7 @@
     border: none;
     border-radius: 5px;
     outline: none;
-    background: #0ea5e9;
+    background: u.$dark-button;
     font-size: 1.5rem;
     cursor: pointer;
   }
