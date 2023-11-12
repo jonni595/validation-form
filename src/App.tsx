@@ -40,7 +40,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>Validation form</h1>
+      <h1>Sign up</h1>
       <div className="form-container">
         <form className="form" onSubmit={handleSubmit}>
           <div className="form__group">
