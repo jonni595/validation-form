@@ -10,7 +10,7 @@ const TimedMessage: React.FC<MessageProps> = ({ message }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowMessage(false);
-    }, 9000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
