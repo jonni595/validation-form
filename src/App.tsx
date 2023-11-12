@@ -3,13 +3,14 @@ import { BsCheckCircleFill } from "react-icons/bs";
 import { initialPerson } from "./utils/model";
 import { submitForm } from "./utils/submitForm";
 import TimedMessage from "./components/TimedMessage";
+import { Status } from "./utils/getStatus";
 
 const App = () => {
   const [person, setPerson] = useState(initialPerson);
   const [error, setError] = useState<null | unknown>(null);
-  const [status, setStatus] = useState("typing");
+  const [status, setStatus] = useState(Status.Typing);
 
-  if (status === "success") {
+  if (status === Status.Success) {
     return (
       <div className="success-container">
         <div className="success">
@@ -29,14 +30,34 @@ const App = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus(Status.Submitting);
     try {
       await submitForm(person);
-      setStatus("success");
-    } catch (error) {
-      setError(error);
+      setStatus(Status.Success);
+    } catch (err) {
+      setStatus(Status.Typing);
+      setError(err);
     }
-    console.log(person);
   };
+
+  const opacityButton =
+    !person.user ||
+    !person.firstName ||
+    !person.password ||
+    !person.password2 ||
+    !person.email ||
+    !person.phone ||
+    person.accept === false;
+
+  const isEnableButton =
+    person.user.length === 0 ||
+    person.firstName.length === 0 ||
+    person.password.length === 0 ||
+    person.password2.length === 0 ||
+    person.email.length === 0 ||
+    person.phone.length === 0 ||
+    person.accept === false ||
+    status === Status.Submitting;
 
   return (
     <div className="container">
@@ -109,7 +130,7 @@ const App = () => {
               name="phone"
               id="phone"
               autoComplete="off"
-              placeholder="3659546217"
+              placeholder="+57 3159546217"
               onChange={handleChange}
             />
           </div>
@@ -125,7 +146,16 @@ const App = () => {
               }
             />
           </div>
-          <button type="submit">Send</button>
+          <button
+            type="submit"
+            disabled={isEnableButton}
+            style={{
+              opacity: opacityButton ? 0.5 : 1,
+              cursor: opacityButton ? "not-allowed" : "pointer",
+            }}
+          >
+            Send
+          </button>
           {error !== null && <TimedMessage message={error.message} />}
         </form>
       </div>
