@@ -1,12 +1,21 @@
 @mixin flex(
   $flex-direction: row,
   $align-items: center,
-  $justify-content: center
+  $justify-content: center,
+  $flex-wrap: false
 ) {
-  display: flex;
-  flex-direction: $flex-direction;
-  align-items: $align-items;
-  justify-content: $justify-content;
+  @if $flex-wrap == false {
+    display: flex;
+    flex-direction: $flex-direction;
+    align-items: $align-items;
+    justify-content: $justify-content;
+  } @else {
+    display: flex;
+    flex-direction: $flex-direction;
+    align-items: $align-items;
+    justify-content: $justify-content;
+    flex-wrap: $flex-wrap;
+  }
 }
 
 @mixin size($width, $height: false) {
