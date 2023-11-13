@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
-import { initialPerson } from "./utils/model";
+import { IError, initialPerson } from "./utils/model";
 import { submitForm } from "./utils/submitForm";
 import TimedMessage from "./components/TimedMessage";
 import { Status } from "./utils/getStatus";
 
 const App = () => {
   const [person, setPerson] = useState(initialPerson);
-  const [error, setError] = useState<null | unknown>(null);
+  const [error, setError] = useState<null | IError>(null);
   const [status, setStatus] = useState(Status.Typing);
 
   if (status === Status.Success) {
@@ -36,7 +36,7 @@ const App = () => {
       setStatus(Status.Success);
     } catch (err) {
       setStatus(Status.Typing);
-      setError(err);
+      setError(err as IError);
     }
   };
 
@@ -156,7 +156,7 @@ const App = () => {
           >
             Send
           </button>
-          {error !== null && <TimedMessage message={error.message} />}
+          {error !== null && <TimedMessage message={error?.message} />}
         </form>
       </div>
     </div>

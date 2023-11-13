@@ -1,4 +1,5 @@
 export interface PersonProps {
+  [key: string]: any;
   user: string;
   firstName: string;
   password: string;
@@ -17,3 +18,7 @@ export const initialPerson: PersonProps = {
   phone: "",
   accept: false,
 };
+
+export interface IError {
+  message: string;
+}
