@@ -124,6 +124,7 @@ svg {
   align-items: flex-start;
   justify-content: center;
   width: 300px;
+  position: relative;
 }
 .form__group:nth-child(7) {
   display: flex;
@@ -191,6 +192,14 @@ svg {
 }
 .form__group input[type=checkbox]:checked::before {
   left: 20px;
+}
+.form__group .icon-eye {
+  position: absolute;
+  right: 12px;
+  bottom: 18px;
+  font-size: 1.7rem;
+  color: #64748b;
+  cursor: pointer;
 }
 .form button[type=submit] {
   width: 300px;

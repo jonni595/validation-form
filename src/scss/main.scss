@@ -27,6 +27,7 @@
   &__group {
     @include u.flex(column, flex-start, center);
     @include u.size(300px);
+    position: relative;
 
     &:nth-child(7) {
       @include u.flex(row-reverse, center, flex-end);
@@ -99,6 +100,15 @@
           left: 20px;
         }
       }
+    }
+
+    .icon-eye {
+      position: absolute;
+      right: 12px;
+      bottom: 18px;
+      font-size: 1.7rem;
+      color: u.$placeholder;
+      cursor: pointer;
     }
   }
 
