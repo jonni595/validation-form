@@ -112,6 +112,10 @@
     font-size: 1.5rem;
     cursor: pointer;
     transition: opacity 0.3s;
+
+    &:hover {
+      background-color: u.$button-hover;
+    }
   }
 }
 
