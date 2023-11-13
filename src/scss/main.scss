@@ -4,9 +4,10 @@
 .container {
   @include u.size(100%, 100vh);
   @include u.flex(column, center, center);
+  padding: 0 20px;
 
   h1 {
-    font-size: clamp(1.5rem, 8vw - 2rem, 3rem);
+    font-size: clamp(4rem, 8vw - 2rem, 3rem);
   }
 
   .form-container {
@@ -131,7 +132,7 @@
 }
 
 .success {
-  @include u.size(300px);
+  @include u.size(300px, 70px);
   @include u.flex();
   color: u.$text-color;
   border-radius: 5px;
@@ -142,12 +143,12 @@
   position: relative;
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-transform: capitalize;
   }
 
   .icon {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     margin-left: 8px;
   }
 }
