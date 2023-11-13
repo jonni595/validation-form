@@ -25,7 +25,7 @@ const App = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPerson({
       ...person,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value.toString(),
     });
   };
 
@@ -114,7 +114,7 @@ const App = () => {
             field="phone"
             textID="phone"
             textName="phone"
-            textType="text"
+            textType="number"
             textValue={person.phone}
             placeholder="+57 3159546217"
             onChangeInput={handleChange}
