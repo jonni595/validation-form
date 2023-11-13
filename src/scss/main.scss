@@ -120,7 +120,7 @@
 }
 
 .error {
-  @include u.size(300px);
+  @include u.size(400px);
   @include u.flex();
   color: u.$text-color;
   padding: 10px 15px;

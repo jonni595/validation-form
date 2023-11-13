@@ -208,7 +208,7 @@ svg {
 }
 
 .error {
-  width: 300px;
+  width: 400px;
   display: flex;
   flex-direction: row;
   align-items: center;
