@@ -3,7 +3,8 @@ import { BsCheckCircleFill } from "react-icons/bs";
 import { IError, initialPerson } from "./utils/model";
 import { submitForm } from "./utils/submitForm";
 import TimedMessage from "./components/TimedMessage";
-import { Status } from "./utils/getStatus";
+import { Status } from "./utils/status";
+import InputField from "./components/InputField";
 
 const App = () => {
   const [person, setPerson] = useState(initialPerson);
@@ -64,88 +65,70 @@ const App = () => {
       <h1>Sign up</h1>
       <div className="form-container">
         <form className="form" onSubmit={handleSubmit}>
-          <div className="form__group">
-            <label htmlFor="user">user</label>
-            <input
-              value={person.user}
-              type="text"
-              name="user"
-              id="user"
-              autoComplete="off"
-              placeholder="johndoe254"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form__group">
-            <label htmlFor="name">name</label>
-            <input
-              value={person.firstName}
-              type="text"
-              name="firstName"
-              id="name"
-              autoComplete="off"
-              placeholder="john doe"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form__group">
-            <label htmlFor="password">password</label>
-            <input
-              value={person.password}
-              type="password"
-              name="password"
-              id="password"
-              placeholder="key"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form__group">
-            <label htmlFor="password2">confirm password</label>
-            <input
-              value={person.password2}
-              type="password"
-              name="password2"
-              id="password2"
-              placeholder="key"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form__group">
-            <label htmlFor="mail">email</label>
-            <input
-              value={person.email}
-              type="email"
-              name="email"
-              id="mail"
-              autoComplete="off"
-              placeholder="johndoe@lol.com"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form__group">
-            <label htmlFor="phone">phone</label>
-            <input
-              value={person.phone}
-              type="text"
-              name="phone"
-              id="phone"
-              autoComplete="off"
-              placeholder="+57 3159546217"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form__group">
-            <label htmlFor="term-cond">accept terms and conditions</label>
-            <input
-              checked={person.accept}
-              type="checkbox"
-              name="term-cond"
-              id="term-cond"
-              onChange={(e) =>
-                setPerson({ ...person, accept: e.target.checked })
-              }
-            />
-          </div>
+          <InputField
+            field="user"
+            textID="user"
+            textName="user"
+            textType="text"
+            textValue={person.user}
+            placeholder="johndoe254"
+            onChangeInput={handleChange}
+          />
+          <InputField
+            field="name"
+            textID="name"
+            textName="firstName"
+            textType="text"
+            textValue={person.firstName}
+            placeholder="john doe"
+            onChangeInput={handleChange}
+          />
+          <InputField
+            field="password"
+            textID="password"
+            textName="password"
+            textType="password"
+            textValue={person.password}
+            placeholder="key"
+            onChangeInput={handleChange}
+          />
+          <InputField
+            field="confirm password"
+            textID="password2"
+            textName="password2"
+            textType="password"
+            textValue={person.password2}
+            placeholder="key"
+            onChangeInput={handleChange}
+          />
+          <InputField
+            field="email"
+            textID="mail"
+            textName="email"
+            textType="email"
+            textValue={person.email}
+            placeholder="johndoe@lol.com"
+            onChangeInput={handleChange}
+          />
+          <InputField
+            field="phone"
+            textID="phone"
+            textName="phone"
+            textType="text"
+            textValue={person.phone}
+            placeholder="+57 3159546217"
+            onChangeInput={handleChange}
+          />
+          <InputField
+            field="accept terms and conditions"
+            textID="term-cond"
+            textName="term-cond"
+            textType="checkbox"
+            checked={person.accept}
+            onChangeInput={(e) => {
+              setPerson({ ...person, accept: e.target.checked });
+            }}
+          />
           <button
             type="submit"
             disabled={isEnableButton}
