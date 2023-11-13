@@ -128,6 +128,11 @@
   background: u.$error;
   font-weight: 400;
   font-size: 1.5rem;
+
+  .icon-error {
+    @include u.size(20px, 20px);
+    margin-right: 8px;
+  }
 }
 
 .success-container {
@@ -151,8 +156,8 @@
     text-transform: capitalize;
   }
 
-  .icon {
-    font-size: 1.8rem;
+  .icon-success {
+    @include u.size(20px, 20px);
     margin-left: 8px;
   }
 }

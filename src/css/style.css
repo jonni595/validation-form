@@ -220,6 +220,11 @@ svg {
   font-weight: 400;
   font-size: 1.5rem;
 }
+.error .icon-error {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
 
 .success-container {
   width: 100%;
@@ -249,8 +254,9 @@ svg {
   font-size: 1.8rem;
   text-transform: capitalize;
 }
-.success .icon {
-  font-size: 1.8rem;
+.success .icon-success {
+  width: 20px;
+  height: 20px;
   margin-left: 8px;
 }
 
