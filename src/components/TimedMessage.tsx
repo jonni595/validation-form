@@ -13,7 +13,7 @@ const TimedMessage: React.FC<MessageProps> = ({ message }) => {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [message]);
 
   return showMessage && <div className="error">{message}</div>;
 };

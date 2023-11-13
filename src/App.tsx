@@ -37,7 +37,8 @@ const App = () => {
       setStatus(Status.Success);
     } catch (err) {
       setStatus(Status.Typing);
-      setError(err as IError);
+      setError(null);
+      setTimeout(() => setError(err as IError), 0);
     }
   };
 
