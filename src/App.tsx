@@ -16,7 +16,7 @@ const App = () => {
       <div className="success-container">
         <div className="success">
           <h1>successfully registered!</h1>
-          <BsCheckCircleFill className="icon" />
+          <BsCheckCircleFill className="icon-success" />
         </div>
       </div>
     );
