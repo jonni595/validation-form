@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 interface FieldsProps {
   field: string;
   textID: string;
@@ -19,12 +21,18 @@ const InputField: React.FC<FieldsProps> = ({
   checked,
   onChangeInput,
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const Icon = isVisible ? <IoEye /> : <IoEyeOff />;
+  const inputType = isVisible ? "text" : "password";
+  const fieldType = (textType = textType === "password" ? inputType : textType);
+
   return (
     <div className="form__group">
       <label htmlFor={textID}>{field}</label>
       <input
         value={textValue}
-        type={textType}
+        type={fieldType}
         name={textName}
         id={textID}
         autoComplete="off"
@@ -32,6 +40,11 @@ const InputField: React.FC<FieldsProps> = ({
         onChange={onChangeInput}
         checked={checked}
       />
+      {textType === inputType && (
+        <span onClick={() => setIsVisible(!isVisible)} className="icon-eye">
+          {Icon}
+        </span>
+      )}
     </div>
   );
 };
