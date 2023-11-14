@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import { ThemeContext } from "../utils/context/ThemeContext";
 interface FieldsProps {
   field: string;
   textID: string;
@@ -21,6 +22,7 @@ const InputField: React.FC<FieldsProps> = ({
   checked,
   onChangeInput,
 }) => {
+  const { theme } = useContext(ThemeContext);
   const [isVisible, setIsVisible] = useState(false);
 
   const Icon = isVisible ? <IoEye /> : <IoEyeOff />;
@@ -39,6 +41,7 @@ const InputField: React.FC<FieldsProps> = ({
         placeholder={placeholder}
         onChange={onChangeInput}
         checked={checked}
+        className={theme === "light" ? "light-input" : "dark-input"}
       />
       {textType === inputType && (
         <span onClick={() => setIsVisible(!isVisible)} className="icon-eye">

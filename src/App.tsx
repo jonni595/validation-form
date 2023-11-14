@@ -1,19 +1,21 @@
-import { useState } from "react";
-import { BsCheckCircleFill } from "react-icons/bs";
+import { useContext, useState } from "react";
+import { BsCheckCircleFill, BsMoonStarsFill, BsSunFill } from "react-icons/bs";
 import { IError, initialPerson } from "./utils/model";
 import { submitForm } from "./utils/submitForm";
 import TimedMessage from "./components/TimedMessage";
 import { Status } from "./utils/status";
 import InputField from "./components/InputField";
+import { ThemeContext } from "./utils/context/ThemeContext";
 
 const App = () => {
   const [person, setPerson] = useState(initialPerson);
   const [error, setError] = useState<null | IError>(null);
   const [status, setStatus] = useState(Status.Typing);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   if (status === Status.Success) {
     return (
-      <div className="success-container">
+      <div className={`success-container ${theme}`}>
         <div className="success">
           <h1>successfully registered!</h1>
           <BsCheckCircleFill className="icon-success" />
@@ -61,8 +63,22 @@ const App = () => {
     person.accept === false ||
     status === Status.Submitting;
 
+  const iconName =
+    theme === "light" ? (
+      <BsMoonStarsFill className="icon-theme" />
+    ) : (
+      <BsSunFill className="icon-theme" />
+    );
+
   return (
-    <div className="container">
+    <div className={`container ${theme}`}>
+      <button
+        onClick={toggleTheme}
+        className={theme === "light" ? "toggle" : "toggle dark-toggle"}
+      >
+        {theme === "light" ? "dark mode" : "light mode"}
+        {iconName}
+      </button>
       <h1>Sign up</h1>
       <div className="form-container">
         <form className="form" onSubmit={handleSubmit}>
@@ -137,6 +153,7 @@ const App = () => {
               opacity: opacityButton ? 0.5 : 1,
               cursor: opacityButton ? "not-allowed" : "pointer",
             }}
+            className={theme === "light" ? "light-button" : "dark-button"}
           >
             Send
           </button>

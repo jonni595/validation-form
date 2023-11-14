@@ -5,6 +5,7 @@
   @include u.size(100%, 100vh);
   @include u.flex(column, center, center);
   padding: 0 20px;
+  transition: all 0.3s;
 
   h1 {
     font-size: clamp(4rem, 8vw - 2rem, 3rem);
@@ -49,10 +50,8 @@
       padding: 10px 12px;
       font-size: 1.5em;
       letter-spacing: 0.5px;
-      outline: 2px solid u.$input-bg;
       border: none;
       border-radius: 5px;
-      background: u.$input-bg;
       margin-bottom: 8px;
       transition: outline 0.3s;
 
@@ -118,14 +117,9 @@
     border: none;
     border-radius: 5px;
     outline: none;
-    background: u.$dark-button;
     font-size: 1.5rem;
     cursor: pointer;
     transition: opacity 0.3s;
-
-    &:hover {
-      background-color: u.$button-hover;
-    }
   }
 }
 
@@ -160,6 +154,7 @@
   margin: auto auto;
   font-weight: 400;
   position: relative;
+  box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.2);
 
   h1 {
     font-size: 1.8rem;
@@ -169,5 +164,84 @@
   .icon-success {
     @include u.size(20px, 20px);
     margin-left: 8px;
+  }
+}
+
+.light {
+  background-color: u.$light;
+  color: u.$bg-color;
+}
+
+.dark {
+  background-color: u.$bg-color;
+  color: u.$text-color;
+}
+
+.light-input:not(input[type="checkbox"]) {
+  background: u.$light;
+  outline: 2px solid u.$light-border;
+
+  &:hover {
+    outline: 2px solid u.$outline;
+  }
+}
+
+.dark-input:not(input[type="checkbox"]) {
+  background: u.$input-bg;
+  outline: 2px solid u.$input-bg;
+
+  &:hover {
+    outline: 2px solid u.$outline;
+  }
+
+  &:focus {
+    outline: 2px solid u.$outline;
+  }
+}
+
+.light-button {
+  background: u.$light-button;
+  color: u.$text-color;
+
+  &:hover {
+    background: u.$light-button-hover;
+  }
+}
+
+.dark-button {
+  background: u.$dark-button;
+
+  &:hover {
+    background: u.$dark-button-hover;
+  }
+}
+
+.toggle {
+  @include u.flex();
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  background: u.$light-button;
+  color: u.$text-color;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:active {
+    background: u.$light-button-hover;
+  }
+
+  .icon-theme {
+    margin-left: 5px;
+  }
+}
+
+.dark-toggle {
+  background: u.$dark-button;
+
+  &:active {
+    background: u.$dark-button-hover;
   }
 }

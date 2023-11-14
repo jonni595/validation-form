@@ -94,6 +94,7 @@ svg {
   align-items: center;
   justify-content: center;
   padding: 0 20px;
+  transition: all 0.3s;
 }
 .container h1 {
   font-size: clamp(4rem, 8vw - 2rem, 3rem);
@@ -146,10 +147,8 @@ svg {
   padding: 10px 12px;
   font-size: 1.5em;
   letter-spacing: 0.5px;
-  outline: 2px solid #1e293b;
   border: none;
   border-radius: 5px;
-  background: #1e293b;
   margin-bottom: 8px;
   transition: outline 0.3s;
 }
@@ -207,13 +206,9 @@ svg {
   border: none;
   border-radius: 5px;
   outline: none;
-  background: #0ea5e9;
   font-size: 1.5rem;
   cursor: pointer;
   transition: opacity 0.3s;
-}
-.form button[type=submit]:hover {
-  background-color: rgb(56, 190, 247);
 }
 
 .error {
@@ -258,6 +253,7 @@ svg {
   margin: auto auto;
   font-weight: 400;
   position: relative;
+  box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.2);
 }
 .success h1 {
   font-size: 1.8rem;
@@ -267,6 +263,80 @@ svg {
   width: 20px;
   height: 20px;
   margin-left: 8px;
+}
+
+.light {
+  background-color: #fff;
+  color: #0f172a;
+}
+
+.dark {
+  background-color: #0f172a;
+  color: #fffbf5;
+}
+
+.light-input:not(input[type=checkbox]) {
+  background: #fff;
+  outline: 2px solid #e0e1e6;
+}
+.light-input:not(input[type=checkbox]):hover {
+  outline: 2px solid #94add1;
+}
+
+.dark-input:not(input[type=checkbox]) {
+  background: #1e293b;
+  outline: 2px solid #1e293b;
+}
+.dark-input:not(input[type=checkbox]):hover {
+  outline: 2px solid #94add1;
+}
+.dark-input:not(input[type=checkbox]):focus {
+  outline: 2px solid #94add1;
+}
+
+.light-button {
+  background: #0f172a;
+  color: #fffbf5;
+}
+.light-button:hover {
+  background: rgb(51, 65, 85);
+}
+
+.dark-button {
+  background: #0ea5e9;
+}
+.dark-button:hover {
+  background: rgb(56, 190, 247);
+}
+
+.toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  background: #0f172a;
+  color: #fffbf5;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.toggle:active {
+  background: rgb(51, 65, 85);
+}
+.toggle .icon-theme {
+  margin-left: 5px;
+}
+
+.dark-toggle {
+  background: #0ea5e9;
+}
+.dark-toggle:active {
+  background: rgb(56, 190, 247);
 }
 
 /*# sourceMappingURL=style.css.map */
