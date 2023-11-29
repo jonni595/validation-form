@@ -8,7 +8,7 @@
 
 ## Skills:
 
-- ⚛️React
+- React ⚛
 - TypeScript (TS)
 - React Icons
 - React Context API
